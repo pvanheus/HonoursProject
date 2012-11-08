@@ -5,5 +5,5 @@
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_RUN_BUILD_KINDS" value="incremental,auto,"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-q -L english -C utf8 -I xindy -M &quot;${project_name}&quot; -t &quot;${project_name}.glg&quot; -o &quot;${project_name}.gls&quot; &quot;${project_name}.glo&quot;"/>
 <booleanAttribute key="org.eclipse.ui.externaltools.ATTR_TRIGGERS_CONFIGURED" value="true"/>
-<stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${project_loc}/tmp"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${project_loc:HonoursResearchReport}/tmp"/>
 </launchConfiguration>
