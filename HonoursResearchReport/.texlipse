@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Thu Nov 08 12:33:33 SAST 2012
+markTmpDer=true
+builderNum=2
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=HonoursResearchReport.tex
+outputFile=HonoursResearchReport.pdf
+langSpell=en
+markDer=true
+srcDir=

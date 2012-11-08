@@ -1,0 +1,34 @@
+#!/usr/bin/env perl
+use warnings;
+use File::Find;
+$annotation = shift; # take in the genbank .ptt annotation file from the command line
+find(\&wanted, "."); # sub-routine for File::Find that specifies to look in the directory being worked
+
+# Define my sub routine to open parsed codeML files and pattern
+# match accession IDs for strain A and B
+sub wanted {
+  my $file  = $_;
+  # "-d" option below confirms that file is NOT a directory
+  # if "-d" is true, then my "$_" is a directory, exit
+  return if -d $_;
+  return unless /^cluster_/; # exit if no files named  "*cluster*" exist
+  open FH, $file or die "Can not open file :-(", $!;
+  my $str = <FH>;
+  my ($acc) = $str =~ /(HP\w+)/; # finds the query accession number for H. pylori 26695
+# my ($acc) = $str =~ /(jhp\w+)/; # finds the query accession number for H. pylori J99
+# my ($acc) = $str =~ /(NMA\w+)/; # finds the query accession number for N. meningitidis Z2491
+# my ($acc) = $str =~ /(NMB\w+)/; # finds the query accession number for N. meningitidis MC58
+# my ($acc) = $str =~ /(VC\w+)/; # finds the query accession number for V. cholerae N16961
+# my ($acc) = $str =~ /(0395_\w+)/; # finds the query accession number for V. cholerae O395
+  close FH;
+  parse_annot_file($acc);
+}
+
+sub parse_annot_file {
+  # Find the query accession number in the annotation file specified on the command line
+  my ($acc) = @_;
+  open ANN, $annotation or die "Can not open file :-(", $!;
+  while ($line = <ANN>) {
+    print $line if $line =~ /$acc/; # if my accession ID matches, print annotation file line
+  }
+}

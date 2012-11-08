@@ -1,0 +1,157 @@
+%% Creator: Inkscape inkscape 0.48.3.1, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'GalaxyPositiveSelectionPipeline.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{857bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,1.77362894)%
+    \put(0,0){\includegraphics[width=\unitlength]{./images/GalaxyPositiveSelectionPipeline.pdf}}%
+    \put(0.24504084,0.85344227){\makebox(0,0)[b]{\smash{18:output1}}}%
+    \put(0.24504084,0.70408404){\makebox(0,0)[b]{\smash{21:out\_file1}}}%
+    \put(0.26604434,0.77876316){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Filter}}}%
+    \put(0.24504084,0.57339556){\makebox(0,0)[b]{\smash{24:out\_file1}}}%
+    \put(0.2596266,0.63873982){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Cut}}}%
+    \put(0.36056009,1.16149361){\makebox(0,0)[b]{\smash{13:out\_file1}}}%
+    \put(0.36056009,1.0086348){\makebox(0,0)[b]{\smash{Strain 2}}}%
+    \put(0.36056009,0.9876313){\makebox(0,0)[b]{\smash{protein FASTA}}}%
+    \put(0.41306884,1.0868145){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Manipulation}}}%
+    \put(0.28996499,0.92928824){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{NCBI BLAST+}}}%
+    \put(0.28996499,0.90828474){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{blastp}}}%
+    \put(0.43757293,0.85344227){\makebox(0,0)[b]{\smash{20:output1}}}%
+    \put(0.41831972,0.92928824){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{NCBI BLAST+}}}%
+    \put(0.41831972,0.90828474){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{blastp}}}%
+    \put(0.78763127,0.85344227){\makebox(0,0)[b]{\smash{19:out\_file1}}}%
+    \put(0.68844807,0.92928824){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Concatenate}}}%
+    \put(0.68844807,0.90828474){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{datasets}}}%
+    \put(0.43757293,0.70408404){\makebox(0,0)[b]{\smash{23:out\_file1}}}%
+    \put(0.43757293,0.50805133){\makebox(0,0)[b]{\smash{25:out\_file1}}}%
+    \put(0.45215869,0.63873982){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Cut}}}%
+    \put(0.24504084,0.31435238){\makebox(0,0)[b]{\smash{27:out\_file1}}}%
+    \put(0.47257876,0.45320886){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Concatenate}}}%
+    \put(0.47257876,0.43220536){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{datasets}}}%
+    \put(0.45857643,0.77876316){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Filter}}}%
+    \put(0.1411902,1.60723457){\makebox(0,0)[b]{\smash{Strain 2 gff}}}%
+    \put(0.14235706,1.47654612){\makebox(0,0)[b]{\smash{Strain 2 genes}}}%
+    \put(0.17619603,1.55239209){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Extract}}}%
+    \put(0.17619603,1.53138859){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{features}}}%
+    \put(0.20886814,1.34002337){\makebox(0,0)[b]{\smash{Strain 2}}}%
+    \put(0.20886814,1.31901987){\makebox(0,0)[b]{\smash{nucleotide}}}%
+    \put(0.20886814,1.29801636){\makebox(0,0)[b]{\smash{FASTA}}}%
+    \put(0.22462077,1.42287051){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Extract Genomic}}}%
+    \put(0.22462077,1.40186701){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{DNA}}}%
+    \put(0.17619603,1.16149361){\makebox(0,0)[b]{\smash{14:out\_file1}}}%
+    \put(0.0991832,0.91878649){\makebox(0,0)[b]{\smash{Nucleotide DB}}}%
+    \put(0.22170362,1.107818){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Index a FASTA}}}%
+    \put(0.22170362,1.0868145){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{file (Bio.SeqIO}}}%
+    \put(0.22170362,1.065811){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{.index\_db)}}}%
+    \put(0.45274212,0.04714119){\makebox(0,0)[b]{\smash{Positively}}}%
+    \put(0.45274212,0.02613769){\makebox(0,0)[b]{\smash{selected genes}}}%
+    \put(0.15869312,0.51855309){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Find positive}}}%
+    \put(0.15869312,0.49754958){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{selected genes}}}%
+    \put(0.23570595,0.19299883){\makebox(0,0)[b]{\smash{Ortholog pairs}}}%
+    \put(0.2882147,0.26067677){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{unique\_line}}}%
+    \put(0.38856476,0.12532089){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Find positive}}}%
+    \put(0.38856476,0.10431739){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{selected genes}}}%
+    \put(0.24504084,0.44270711){\makebox(0,0)[b]{\smash{26:outfile}}}%
+    \put(0.29638273,0.3890315){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Concatenate}}}%
+    \put(0.29638273,0.368028){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{datasets}}}%
+    \put(0.66861144,1.0086348){\makebox(0,0)[b]{\smash{Strain 1}}}%
+    \put(0.66861144,0.9876313){\makebox(0,0)[b]{\smash{protein FASTA}}}%
+    \put(0.55834306,0.92928824){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{NCBI BLAST+}}}%
+    \put(0.55834306,0.90828474){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{blastp}}}%
+    \put(0.8092182,0.92928824){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{NCBI BLAST+}}}%
+    \put(0.8092182,0.90828474){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{blastp}}}%
+    \put(0.94399067,0.92928824){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Concatenate}}}%
+    \put(0.94399067,0.90828474){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{datasets}}}%
+    \put(0.54375729,1.73908988){\makebox(0,0)[b]{\smash{Strain 1}}}%
+    \put(0.54375729,1.71808638){\makebox(0,0)[b]{\smash{Genbank file}}}%
+    \put(0.49824971,1.54189034){\makebox(0,0)[b]{\smash{5:out\_file1}}}%
+    \put(0.55425904,1.66091018){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{seqret}}}%
+    \put(0.67911319,1.60723457){\makebox(0,0)[b]{\smash{Strain 1 gff}}}%
+    \put(0.69836639,1.66091018){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Genbank to GFF3}}}%
+    \put(0.50058343,1.34002337){\makebox(0,0)[b]{\smash{Strain 1}}}%
+    \put(0.50058343,1.31901987){\makebox(0,0)[b]{\smash{nucleotide}}}%
+    \put(0.50058343,1.29801636){\makebox(0,0)[b]{\smash{FASTA}}}%
+    \put(0.56534422,1.48704787){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Extract Genomic}}}%
+    \put(0.56534422,1.46604437){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{DNA}}}%
+    \put(0.26837806,1.73908988){\makebox(0,0)[b]{\smash{Strain 2}}}%
+    \put(0.26837806,1.71808638){\makebox(0,0)[b]{\smash{Genbank file}}}%
+    \put(0.21411902,1.66091018){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Genbank to GFF3}}}%
+    \put(0.3092182,1.54189034){\makebox(0,0)[b]{\smash{7:out\_file1}}}%
+    \put(0.31621937,1.66091018){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{seqret}}}%
+    \put(0.3798133,1.48704787){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Extract Genomic}}}%
+    \put(0.3798133,1.46604437){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{DNA}}}%
+    \put(0.45274212,0.20350058){\makebox(0,0)[b]{\smash{CodeML control}}}%
+    \put(0.45274212,0.18249708){\makebox(0,0)[b]{\smash{file}}}%
+    \put(0.51225204,0.12532089){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Find positive}}}%
+    \put(0.51225204,0.10431739){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{selected genes}}}%
+    \put(0.66044341,0.20350058){\makebox(0,0)[b]{\smash{CodeML tree}}}%
+    \put(0.66044341,0.18249708){\makebox(0,0)[b]{\smash{file}}}%
+    \put(0.6756126,0.12532089){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Find positive}}}%
+    \put(0.6756126,0.10431739){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{selected genes}}}%
+    \put(0.78763127,0.63873982){\makebox(0,0)[b]{\smash{Protein DB}}}%
+    \put(0.84714119,0.3890315){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Find positive}}}%
+    \put(0.84714119,0.368028){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{selected genes}}}%
+    \put(0.36231039,1.22567097){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{transeq}}}%
+    \put(0.24504084,1.23617272){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Concatenate}}}%
+    \put(0.24504084,1.21516922){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{datasets}}}%
+    \put(0.47257876,1.23617272){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Concatenate}}}%
+    \put(0.47257876,1.21516922){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{datasets}}}%
+    \put(0.56126021,1.16149361){\makebox(0,0)[b]{\smash{12:out\_file1}}}%
+    \put(0.57351225,1.22567097){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{transeq}}}%
+    \put(0.84597433,0.79976666){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Index a FASTA}}}%
+    \put(0.84597433,0.77876316){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{file (Bio.SeqIO}}}%
+    \put(0.84597433,0.75775966){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{.index\_db)}}}%
+    \put(0.74445741,1.47654612){\makebox(0,0)[b]{\smash{Strain 1 genes}}}%
+    \put(0.75495916,1.55239209){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Extract}}}%
+    \put(0.75495916,1.53138859){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{features}}}%
+    \put(0.73920653,1.42287051){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Extract Genomic}}}%
+    \put(0.73920653,1.40186701){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{DNA}}}%
+    \put(0.68261377,1.0868145){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Manipulation}}}%
+    \put(0.29288215,0.50805133){\color[rgb]{0,0,1}\makebox(0,0)[b]{\smash{Manipulation}}}%
+  \end{picture}%
+\endgroup%

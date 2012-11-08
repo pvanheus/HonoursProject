@@ -1,0 +1,82 @@
+\newacronym{DNA}{DNA}{deoxyribonucleic acid}
+\newacronym{RNA}{RNA}{ribonucleic acid}
+\newacronym{BSA}{BSA}{biological sequence analysis}
+\newacronym{SciWMS}{SciWMS}{scientific workflow management system}
+\newacronym{XML}{XML}{Extensible Markup Language}
+\newacronym{VPL}{VPL}{visual programming language}
+\newglossaryentry{bsanalysis}{
+name={biological sequence analysis},
+description={is the process of inferring biological knowledge from the sequence of biological molecules such as \gls{DNA} and \gls{RNA}. Broadly speaking, knowledge is either gleaned ab initio, that is by applying models to the sequence itself, or by comparing new sequence to known sequence, using a \gls{homology} search}
+}
+\newglossaryentry{homology}{
+name={sequence homology},
+description={is a feature of sequences that share common evolutionary ancestry. Typically such sequences will share a degree of sequence similarity. In other words, sequences of \glspl{gene} that perform similar functions will ``look'' somewhat similar, and this similarity can be searched for using tools such as \gls{BLAST}},
+plural={sequence homologies}
+}
+\newglossaryentry{BLAST}{
+name={BLAST},
+description={is the Basic Local Alignment Search Tool \cite{altschul_gapped_1997}, a program used by biologists to execute \gls{homology} searches. Using BLAST one or more query sequences can be search against a database of \glspl{nucleicacid} or \glspl{protein} to find sequences to which it is similar}
+}
+\newglossaryentry{gene}{
+name=gene,
+description={is a molecular unit of genetic information. All living organisms use gene to store the genetic information that both provides a recipe for the construction of protein and allows for inheritance of traits from one generation to the next},
+plural=genes,
+}
+\newglossaryentry{aminoacid}{
+name={amino acid},
+description={is one of a family of biological molecules used in the construction of \glspl{protein}},
+plural={amino acids}
+}
+\newglossaryentry{protein}{
+name={protein},
+description={is a macromolecule that performs a biological function in a living organism. Proteins are constructed out of \glspl{aminoacid} and a major function of \gls{DNA} is to store the \glspl{gene} that describe the sequences of \glspl{aminoacid} out of which proteins are constructed},
+plural={proteins}
+}
+\newglossaryentry{nucleicacid}{
+name={nucleic acid},
+description={is a biological molecule. \gls{DNA} is a nucleic acid that stores the genetic information of a cell. \gls{RNA} is another nucleic acid that is involved, amongst other things, in the transport of genetic information and the construction of protein},
+plural={nucleic acids}
+}
+\newglossaryentry{base}{
+name={base},
+description={is an informal term for a nucleobase, the molecular units out of which \glspl{nucleicacid} are constructed. In \gls{DNA} there are four types of base: adenine, guanine, thymine and cytosine. These are typically represented by the letters A, G, T and C. In \gls{RNA} thymine is replaced by urasil, denoted by the letter U},
+plural={bases}
+}
+\newglossaryentry{sequencing}{
+name={sequencing},
+description={refers to the process of determining the order of the nucleotide \glspl{base} in a \gls{nucleicacid}},
+}
+\newglossaryentry{workflow}{
+name=workflow,
+description={is a description of the sequences of procedures necessary to undertake a particular process. In this regard workflows are similar to laboratory protocols in that they describe a reproducible set of steps that need to be undertaken to perform a scientific analysis},
+plural=workflows
+}
+\newglossaryentry{SciWMSystem}{
+name={scientific workflow management system},
+description={is a application or set of applications that allows users to composer and execute scientific \glspl{workflow} using a given set of design primitives},
+plural={scientific workflow management systems},
+}
+\newglossaryentry{opensource}{
+name={open source software},
+description={is software developed according to a philosophy that promotes free redistribution and access to the design and implementation details of the software product. This means that source code and sometimes binaries for the software are available for users to freely redistribute and alter}
+}
+\newglossaryentry{XMLang}{
+name={Extensible Markup Language},
+description={is a markup language that defines a set of rules for encoding documents in such as way as to be readable by both machines and humans}
+}
+\newglossaryentry{visualpl}{
+name={visual programming language},
+description={is a kind of programming language where the elements of computation are expressed using graphical diagrams. As with textual programming languages, some form of interpreter or compiler takes the user created program diagram as input and converts it into instructions that can be executed on a computer},
+plural={visual programming languages}
+}
+\newglossaryentry{controlflow}{
+name={control flow},
+description={refers to the order in which individual elements of computation (statements or tasks) are executed. Control flow operators (such as iteration and choice) express the paths that execution might proceed through a program, and the conditions attached to those paths. For example, the ``if'' statement available in most programming languages directs execution along a particular path only if a certain condition is true. Contrast with \gls{dataflow}}
+}
+\newglossaryentry{dataflow}{
+name={dataflow},
+description={refers to the dependencies that exist between elements of data in a program or computational system. For example, the average length of a set of strings depends on the set of strings. Dataflow does not specify in what order computation needs to proceed, as opposed to \gls{controlflow}}
+}
+
+\makeglossary
+\glsaddall
