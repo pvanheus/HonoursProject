@@ -77,23 +77,119 @@ This evaluation will proceed in two parts. In chapter \ref{sec:intro_swms} \gls{
 \chapter{Introduction to scientific workflow systems}
 \label{sec:intro_swms}
 
-The notion of a \gls{workflow} originated in the study of business processes and the 1995 Workflow Management Coalition's reference model describes a \gls{workflow} in terms of ``procedures where documents, information or tasks are passed between participants according to a defined set of rules to achieve, or contribute to, an overall business goal'' \cite{hollingsworth_workflow_1995}. According to Abbott et al, the need for workflow management in business was driven by the challenges of coordinating work taking place on large numbers of desktop computers interconnected in a network \cite{abbott_experiences_1994}. \Glspl{workflow} in business are realised using a workflow management system that defines, manages and executes workflows on computational resources \cite{yu_taxonomy_2005}. 
+The notion of a \gls{workflow} originated in the study of business processes and
+the 1995 Workflow Management Coalition's reference model describes a
+\gls{workflow} in terms of ``procedures where documents, information or tasks
+are passed between participants according to a defined set of rules to achieve,
+or contribute to, an overall business goal'' \cite{hollingsworth_workflow_1995}.
+According to Abbott et al, the need for workflow management in business was
+driven by the challenges of coordinating work taking place on large numbers of
+desktop computers interconnected in a network \cite{abbott_experiences_1994}.
+\Glspl{workflow} in business are realised using a workflow management system
+that defines, manages and executes workflows on computational resources
+\cite{yu_taxonomy_2005}.
 
-While the concept of \glspl{workflow} was first applied to business processes, there are now many \glspl{SciWMS}. These aim to model and enact \glspl{workflow} that ``[support] large-scale, complex, yet fault-tolerant and maintainable scientific processes'' \cite{yildiz_towards_2009}. Castro et al describe \glspl{workflow} as analogous to laboratory protocols, that is allowing scientists to provide ``rich descriptions of their experiments (materials and methods) so they can be easily replicated'' \cite{castro_workflows_2005}. Yildiz et al \cite{yildiz_business_2009} note that scientific workflows are distinguished from business workflows by being``dataflow oriented'': whereas business workflows focus on the set of activities that take place to enact a business process, scientific workflows focus on the flow of data between tasks in an analytical process.
+While the concept of \glspl{workflow} was first applied to business processes,
+there are now many \glspl{SciWMS}. These aim to model and enact \glspl{workflow}
+that ``[support] large-scale, complex, yet fault-tolerant and maintainable
+scientific processes'' \cite{yildiz_towards_2009}. Castro et al describe
+\glspl{workflow} as analogous to laboratory protocols, that is allowing
+scientists to provide ``rich descriptions of their experiments (materials and
+methods) so they can be easily replicated'' \cite{castro_workflows_2005}. Yildiz
+et al \cite{yildiz_business_2009} note that scientific workflows are
+distinguished from business workflows by being``dataflow oriented'': whereas
+business workflows focus on the set of activities that take place to enact a
+business process, scientific workflows focus on the flow of data between tasks
+in an analytical process.
 
-If \glspl{SciWMS} in general, and Galaxy in particular, are to help solve the \emph{informatics crisis} in bioinformatics, two questions need to be answered: Firstly, can \glspl{SciWMS} make computation more accessible for non-programmers? Abouelhoda suggest that \glspl{SciWMS} provide an ``easy-to-use metaphor that can be used for designing and executing bioinformatics applications''. Empirical research on \glspl{VPL}\footnote{Most \glspl{SciWMS} use some form of graph-based \gls{VPL} to compose \glspl{workflow} \cite{yu_taxonomy_2005}.} done by Blackwell et al suggests that metaphor, on its own, is not a significant factor in guiding people's understanding of how to compose or understand program logic \cite{blackwell_does_1999}. Instead they suggest \cite{blackwell_cognitive_2001} that Green et al's model of thirteen cognitive dimensions of programming environments should be used to judge the accessibility of a \gls{VPL}. 
+If \glspl{SciWMS} in general, and Galaxy in particular, are to help solve the
+\emph{informatics crisis} in bioinformatics, two questions need to be answered:
+Firstly, can \glspl{SciWMS} make computation more accessible for
+non-programmers? Abouelhoda suggest that \glspl{SciWMS} provide an ``easy-to-use
+metaphor that can be used for designing and executing bioinformatics
+applications''. Empirical research on \glspl{VPL}\footnote{Most \glspl{SciWMS}
+use some form of graph-based \gls{VPL} to compose \glspl{workflow}
+\cite{yu_taxonomy_2005}.} done by Blackwell et al suggests that metaphor, on its
+own, is not a significant factor in guiding people's understanding of how to
+compose or understand program logic \cite{blackwell_does_1999}. Instead they
+suggest \cite{blackwell_cognitive_2001} that Green et al's model of thirteen
+cognitive dimensions of programming environments should be used to judge the
+accessibility of a \gls{VPL}.
 
-In addition Blackwell et al point to the role that a large library of reuseable components play in the expressive power of programming environments\footnote{Both the Galaxy (\cite{giardine_galaxy:_2005} and \cite{nekrutenko_introduction_2011}) and Taverna \cite{hull_taverna:_2006} developers highlight the range of pre-existing components available for use in their \glspl{SciWMS}} and also the importance of choosing a paradigm that ``maps'' to the user's understanding of their problem domain. McPhillips et al  suggest that since scientific computation involves successive steps of analysis of collections of data, the dataflow paradigm\footnote{The dataflow paradigm is embodied by a set of programming languages and environments where computation is expressed in terms of the flow of data between computing steps. See for example \cite{gostelow_view_1979} and \cite{lee_dataflow_1995}. This paradigm is contrasted with ``control flow'', where computation is expressed in terms of the flow of control in a program. Lee 
-et al \cite{lee_dataflow_1995} suggest that whereas in the control flow paradigm programming is imperative, that is, the job of the user is to tell the computer what to do at each step, the dataflow paradigm emphasises declarative design, where the user specifies inputs and outputs but does not necessarily specify the detail of how computation is executed.} is appropriate for \glspl{SciWMS}. They propose eight desirable characteristics that assist in the adoption of \gls{SciWMS} by scientist who are not programmers. Green et al and McPhillips et al's schemas are introduced in section \ref{sec:eval_swms_usability} and they are used to evaluate Galaxy in section \ref{sec:galaxy_swms_useability}.
+In addition Blackwell et al point to the role that a large library of reuseable
+components play in the expressive power of programming
+environments\footnote{Both the Galaxy (\cite{giardine_galaxy:_2005} and
+\cite{nekrutenko_introduction_2011}) and Taverna \cite{hull_taverna:_2006}
+developers highlight the range of pre-existing components available for use in
+their \glspl{SciWMS}} and also the importance of choosing a paradigm that
+``maps'' to the user's understanding of their problem domain. McPhillips et al 
+suggest that since scientific computation involves successive steps of analysis
+of collections of data, the dataflow paradigm\footnote{The dataflow paradigm is
+embodied by a set of programming languages and environments where computation is
+expressed in terms of the flow of data between computing steps. See for example
+\cite{gostelow_view_1979} and \cite{lee_dataflow_1995}. This paradigm is
+contrasted with ``control flow'', where computation is expressed in terms of the
+flow of control in a program. Lee et al \cite{lee_dataflow_1995} suggest that
+whereas in the control flow paradigm programming is imperative, that is, the job
+of the user is to tell the computer what to do at each step, the dataflow
+paradigm emphasises declarative design, where the user specifies inputs and
+outputs but does not necessarily specify the detail of how computation is
+executed.} is appropriate for \glspl{SciWMS}. They propose eight desirable
+characteristics that assist in the adoption of \gls{SciWMS} by scientist who are
+not programmers. Green et al and McPhillips et al's schemas are introduced in
+section \ref{sec:eval_swms_usability} and they are used to evaluate Galaxy in
+section \ref{sec:galaxy_swms_useability}.
 
-There is a second perspective from which \glspl{SciWMS} and Galaxy must be considered if they are to be useful for \gls{BSA}. How can we know if these systems can efficiently express the necessary computational constructs necessary to undertake \gls{BSA}? Stevens et al \cite{stevens_classification_2001} and Castro et al \cite{castro_workflows_2005} have provided a theoretical model of tasks encountered in bioinformatics. This model is discussed in Section \ref{sec:bioinformatics_tasks}. In order to validate this model and provide more practical understanding of the tasks undertaken in \gls{BSA}, three cases studies are presented in section \ref{sec:case_studies} that present real world examples of how problems in \gls{BSA} have been solved. Having established an understanding of what is involved in \gls{BSA}, a framework for evaluating \glspl{SciWMS} will be presented. Van der Aalst et al and have identified a set of workflow patterns, where patterns are ``abstraction[s] from a concrete form which [keep] 
-recurring in specific nonarbitrary contexts'' \cite{van_der_aalst_workflow_2003}. Yildiz et al \cite{yildiz_towards_2009} have applied van der Aalst et al's insights to the study of \gls{SciWMS}. These patterns will be considered in the context of the model of computation in \gls{BSA} in section \ref{sec:workflow_patterns}, and the extent to which Galaxy supports these patterns will be discussed in section \ref{sec:galaxy_swms_patterns}. In addition to the evaluation in terms of workflow patterns, Deelman et al have proposed a framework for evaluating \gls{SciWMS} according to four stages of ``workflow lifecycle''. This schema will be introduced in section \ref{sec:eval_swms_features} and Galaxy will be examined according to this schema in section \ref{sec:galaxy_swms_features}. 
+There is a second perspective from which \glspl{SciWMS} and Galaxy must be
+considered if they are to be useful for \gls{BSA}. How can we know if these
+systems can efficiently express the necessary computational constructs necessary
+to undertake \gls{BSA}? Stevens et al \cite{stevens_classification_2001} and
+Castro et al \cite{castro_workflows_2005} have provided a theoretical model of
+tasks encountered in bioinformatics. This model is discussed in Section
+\ref{sec:bioinformatics_tasks}. In order to validate this model and provide more
+practical understanding of the tasks undertaken in \gls{BSA}, three cases
+studies are presented in section \ref{sec:case_studies} that present real world
+examples of how problems in \gls{BSA} have been solved. Having established an
+understanding of what is involved in \gls{BSA}, a framework for evaluating
+\glspl{SciWMS} will be presented. Van der Aalst et al and have identified a set
+of workflow patterns, where patterns are ``abstraction[s] from a concrete form
+which [keep] recurring in specific nonarbitrary contexts''
+\cite{van_der_aalst_workflow_2003}. Yildiz et al \cite{yildiz_towards_2009} have
+applied van der Aalst et al's insights to the study of \gls{SciWMS}. These
+patterns will be considered in the context of the model of computation in
+\gls{BSA} in section \ref{sec:workflow_patterns}, and the extent to which Galaxy
+supports these patterns will be discussed in section
+\ref{sec:galaxy_swms_patterns}. In addition to the evaluation in terms of
+workflow patterns, Deelman et al have proposed a framework for evaluating
+\gls{SciWMS} according to four stages of ``workflow lifecycle''. This schema
+will be introduced in section \ref{sec:eval_swms_features} and Galaxy will be
+examined according to this schema in section \ref{sec:galaxy_swms_features}.
 
 \section{Evaluation the usability of scientific workflow systems}
 \label{sec:eval_swms_usability}
 
-In the introduction to this research I made the point that the wealth of available \gls{sequencing} resources are not match by a similar wealth of skilled bioinformatics programmers. It follows, then, that a \gls{SciWMS} for bioinformatics and more particularly \gls{BSA} needs to be usable by non-programmers\footnote{Usability is always a question of \emph{who} is trying to use a system for \emph{what}, and in thi research the \emph{who} is bioinformaticists who are non-programmers, and the \emph{what} is \gls{BSA}.}. While several authors (for example Yu et al \cite{yu_taxonomy_2005}, Altinas et al \cite{altintas_kepler:_2004} and Oinn et al \cite{oinn_taverna:_2004}) have illustrated the expressive power of \gls{SciWMS}\footnote{This expressive power compares favourably to the use of scripting languages for tool integration. Scripting languages such as Python and Perl are well established in bioinformatics and \gls{BSA}, where they are used for file format conversion and the execution of \glspl{workflow}. 
-For an early example of advocacy for scripting languages in bioinformatics, see \cite{stein_how_1996}.}, the literature on usability is of \gls{SciWMS} is sparse. One welcome exception is McPhillips et al \cite{mcphillips_scientific_2009}, where a set of desirable features of \glspl{SciWMS} are presented. The eight \gls{SciWMS} desiderata that McPhillips present are focussed on making it easier for non-programmers to create, understand and share efficient \glspl{workflow}, and they are summarised in table \ref{tab:mcphillipsdesiderata}.
+In the introduction to this research I made the point that the wealth of
+available \gls{sequencing} resources are not match by a similar wealth of
+skilled bioinformatics programmers. It follows, then, that a \gls{SciWMS} for
+bioinformatics and more particularly \gls{BSA} needs to be usable by
+non-programmers\footnote{Usability is always a question of \emph{who} is trying
+to use a system for \emph{what}, and in thi research the \emph{who} is
+bioinformaticists who are non-programmers, and the \emph{what} is \gls{BSA}.}.
+While several authors (for example Yu et al \cite{yu_taxonomy_2005}, Altinas et
+al \cite{altintas_kepler:_2004} and Oinn et al \cite{oinn_taverna:_2004}) have
+illustrated the expressive power of \gls{SciWMS}\footnote{This expressive power
+compares favourably to the use of scripting languages for tool integration.
+Scripting languages such as Python and Perl are well established in
+bioinformatics and \gls{BSA}, where they are used for file format conversion and
+the execution of \glspl{workflow}.
+For an early example of advocacy for scripting languages in bioinformatics, see
+\cite{stein_how_1996}.}, the literature on usability is of \gls{SciWMS} is
+sparse. One welcome exception is McPhillips et al
+\cite{mcphillips_scientific_2009}, where a set of desirable features of
+\glspl{SciWMS} are presented. The eight \gls{SciWMS} desiderata that McPhillips
+present are focussed on making it easier for non-programmers to create,
+understand and share efficient \glspl{workflow}, and they are summarised in
+table \ref{tab:mcphillipsdesiderata}.
 
 \begin{table}
 \begin{tabular}{|l|p{7cm}|}
@@ -182,10 +278,44 @@ ADD STUFF
 \subsection{A model of bioinformatics tasks}
 \label{sec:bioinformatics_tasks}
 
-In the introduction bioinformatics was defined as ``the discipline of solving problems in biology and medicine using computational resources''. Stevens et al \cite{stevens_classification_2001} provide a classification of tasks in bioinformatics, a classification that they undertake to explore ``the range of tasks that need to be supported and the components needed'' in what they call a general query system. In the field of \gls{BSA} that interests us, a query system is a system that is able to answer questions that seek to ``infer biological knowledge from sequence alone''. While we present case studies that illustrate sample \glspl{workflow} in \gls{BSA}, Stevens et al's model provides a more general framework within which to discuss the capabilities of a \gls{SciWMS}. The authors propose that the ``general query system'' can be built out of the set of six components that are listed in Table \ref{tab:stevenscomponents}. 
+In the introduction bioinformatics was defined as ``the discipline of solving
+problems in biology and medicine using computational resources''. Stevens et al
+\cite{stevens_classification_2001} provide a classification of tasks in
+bioinformatics, a classification that they undertake to explore ``the range of
+tasks that need to be supported and the components needed'' in what they call a
+general query system. In the field of \gls{BSA} that interests us, a query
+system is a system that is able to answer questions that seek to ``infer
+biological knowledge from sequence alone''. While we present case studies that
+illustrate sample \glspl{workflow} in \gls{BSA}, Stevens et al's model provides
+a more general framework within which to discuss the capabilities of a
+\gls{SciWMS}. The authors propose that the ``general query system'' can be built
+out of the set of six components that are listed in Table
+\ref{tab:stevenscomponents}.
 
-These components describe the flow of data (where data include sets of data objects and sets of parameters) through a series of transformations and selection operations. So for example, a sequence similarity search will take two sets of data input objects, the database and the query sequences, and a set of query parameters (for example, that the search is a protein versus protein search). The search itself is a transformation, where each query sequence is transformed into a (possibly empty) set of matches against the database. This set of matches might then be sent to a filter, that will apply a set of parameters that describe which matches are worth displaying to the end user. A key distinction between a transform and a filter is that a transform alters the type of a data object \footnote{Here ``type'' refers to the semantics of a data object, not its syntax. Thus, for example, a tool that selected a subset of a sequence is a transform, even though both input and output are biological sequences.} whereas a 
-filter selects a subset of a collection but does not alter the type of the data in any way. In this way the question ``which of these sequences match a known sequence in the database'' can be answered. Stevens et al's model is thus a \gls{dataflow} model and thus it provides a fairly straightforward set of requirements for how a \gls{SciWMS} for \gls{BSA} should be able to address \gls{dataflow} issues: support collections of data and parameters, provide for transforms and filters, and fork the \gls{dataflow} to enable concurrent processing \footnote{Stevens et al mention forks but not joins in their model. Presumably a join could simply be implemented as a transform that took multiple data sets as inputs and concatenated them to provide a single input set.}.
+These components describe the flow of data (where data include sets of data
+objects and sets of parameters) through a series of transformations and
+selection operations. So for example, a sequence similarity search will take two
+sets of data input objects, the database and the query sequences, and a set of
+query parameters (for example, that the search is a protein versus protein
+search). The search itself is a transformation, where each query sequence is
+transformed into a (possibly empty) set of matches against the database. This
+set of matches might then be sent to a filter, that will apply a set of
+parameters that describe which matches are worth displaying to the end user. A
+key distinction between a transform and a filter is that a transform alters the
+type of a data object \footnote{Here ``type'' refers to the semantics of a data
+object, not its syntax. Thus, for example, a tool that selected a subset of a
+sequence is a transform, even though both input and output are biological
+sequences.} whereas a filter selects a subset of a collection but does not alter
+the type of the data in any way. In this way the question ``which of these
+sequences match a known sequence in the database'' can be answered. Stevens et
+al's model is thus a \gls{dataflow} model and thus it provides a fairly
+straightforward set of requirements for how a \gls{SciWMS} for \gls{BSA} should
+be able to address \gls{dataflow} issues: support collections of data and
+parameters, provide for transforms and filters, and fork the \gls{dataflow} to
+enable concurrent processing \footnote{Stevens et al mention forks but not joins
+in their model. Presumably a join could simply be implemented as a transform
+that took multiple data sets as inputs and concatenated them to provide a single
+input set.}.
 
 \begin{table}[h]
 \begin{tabular}{|l|p{7cm}|}
@@ -221,21 +351,49 @@ suspension / resumption (see Table \ref{tab:castrocomponents}).
 \label{tab:castrocomponents} 
 \end{table}
 
-Combining Stevens et al's schema with Castro et al's \gls{controlflow} operators, a model is proposed that
-\glspl{SciWMS} must be able to take input collections of data and sets of parameters, and then iterate 
-across the collection, or apply different sets of parameters to the collection (or both). There might be
-one or multiple outputs from a transform, and each of these outputs might require filtering. The possibility
-to fork \glspl{dataflow} or use \gls{controlflow} operators like iteration or recursion means that there 
-is scope for multiple processes to be executing concurrently. Finally, the \gls{SciWMS} must be able
-to suspend and resume workflow execution.
+Combining Stevens et al's schema with Castro et al's \gls{controlflow}
+operators, we see that a bioinformatics \glspl{SciWMS} must be able to take
+input collections of data and sets of parameters and feed these into transform
+and filter tasks. These tasks must be able to iterate across the collection, or
+repeat the task with different sets of parameter, or do both.
+There might be one or multiple outputs from a transform, and each of these
+outputs might require filtering. The possibility to fork \glspl{dataflow} or use
+\gls{controlflow} operators like iteration or recursion means that there is
+scope for multiple processes to be executing concurrently. Finally, the
+\gls{SciWMS} must be able to suspend and resume workflow execution. These
+criteria set a ``lower bound'' in terms of what must a \gls{SciWMS} for
+bioinformatics must support.
 
-
-
-elaborate Stevens et al's classification and enrich it with three new operators. This is part of their Whereas Stevens et al focus on the flow, selection and transformation of data in answering biological questions, Castro et al's additional operators address \gls{controlflow} issues that are not considered in Stevens et al's schema.\Gls{controlflow} addresses the sequence of operations that is necessary to accomplish a larger operation, and the operators that Castro et al provide allow for a mapping of procedural descriptions of \glspl{workflow} to the operations of a \gls{SciWMS}. The use of this mapping will be illustrated in the discussion of real world \glspl{workflow} in Section \ref{sec:case_studies}.
-
+Of course, this model requires validation by examining its application to real
+world problems in bioinformatics. The next section will outline three case
+studies, and illustrate how the model drawn from Stevens et al
+\cite{stevens_classification_2001} and Castro et al's
+\cite{castro_workflows_2005} work is, in fact, adequate to describe the tasks
+undertaken in bioinformatics analysis.
 
 \subsection{Case studies of bioinformatics problem solving}
 \label{sec:case_studies}
+
+Three case studies of real-world bioinformatics analyses will now be presented.
+These case studies have been chosen both because they illustrate real-world problems in the field,
+and because they present a variety of problems, including the need to iterate across data collections,
+
+
+
+\subsubsection{Case study 1: Mining bacterial genomes for virulence genes}
+
+Pathogens that invade the human body engage in a continual ``arms race'' with the human immune system. Part of this ``arms race'' is pathogenic bacteria evolving new virulence genes (genes that encode for virulence factors) to defeat the human immune system's defences. Building upon earlier work, Panji \cite{panji_identification_2009} investigated bioinformatics techniques to identify genes in bacteria that appear to be evolving at a rate higher than the genome as a whole. This analysis was the first step in investigating whether the rate of evolution of a gene might be an indicator of its involvement in the virulence of an organism. Panji implemented an analysis workflow that compared the genes contained against two bacterial genomes to one another and output a list of genes that showed signs of positive selection. This workflow was implemented as a set of Perl scripts that call various bioinformatics tools, and the steps in the workflow were executed by the user manually enacting them on the command line.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.7\textwidth]{sumir/Thesis_figures/Methods_section/pipeline_steps_mark_7}
+\caption{Identifying positively selected genes in bacterial genomes}
+\label{fig:sumir_pipeline}
+\end{figure}
+
+Panji's workflow is schematically described in their Ph.D thesis in the form of a diagram (Figure \ref{fig:sumir_pipeline}). Further knowledge of the workflow was gained by interviewing the author directly and by examining the Perl scripts used to enact the workflow.  The Perl scripts that make up this workflow are available in Appendix A1 of \cite{panji_identification_2009}.
+%[[two months to implement, sumir panji came from a life sciences background, first encountered programming during MSc in bioinformatics, self taught in Perl except for one week of instruction]]
+
 \subsection{Scientific workflow patterns for bioinformatics}
 \label{sec:workflow_patterns}
 \subsection{Evaluating the features of scientific workflow management systems}
