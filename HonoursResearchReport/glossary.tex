@@ -77,6 +77,23 @@ description={refers to the order in which individual elements of computation (st
 name={dataflow},
 description={refers to the dependencies that exist between elements of data in a program or computational system. For example, the average length of a set of strings depends on the set of strings. Dataflow does not specify in what order computation needs to proceed, as opposed to \gls{controlflow}}
 }
-
+%\newglossaryentry{homology}{
+%name={homology},
+%description={refers to similarity between nucleotide or amino acid sequences that is an indicator of shared evolutionary ancestory. It may also be indicative of shared
+%function, that is two similar nucleotide or amino acid sequences maybe both go on to create biological molecules that ``work'' the same way.}
+%}
+%\newglossaryentry{BLAST}{
+%name={BLAST},
+%description={the Basic Local Alignment Search Tool, is a tool used in bioinformatics for doing homology, that is sequence similarity, searches. Using BLAST involves a
+%pre-processing step where the database of sequences to be searched is formatted in BLAST database format. Once this database is created, it can be searched 
+%rapidly to find matches (known as hits) for a given query sequence.}
+%}
+\newglossaryentry{ortholog}{
+name={ortholog},
+description={a gene that is related to another gene by a shared history. Two genes, in two different species or two different forms of the same species, are orthologs if
+they evolved from the same gene at some point in the organism's history. The difference between two orthologous genes can be small, for example one letter of DNA might
+be an `A' in the one and a `G' in the other, or it might be larger, but in general a sequence similarity (aka. homology) search will show that the genes are similar.},
+plural={orthologs}
+}
 \makeglossary
 \glsaddall

@@ -1,15 +1,13 @@
-\documentclass[a4paper,10pt]{scrreprt}
-\usepackage[utf8]{inputenc}
+\documentclass[a4paper,10pt]{scrreprt} \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{hyperref}
 % hide link borders
 \hypersetup{
-    colorlinks=false,
-    pdfborder={0 0 0},
+    colorlinks=false, pdfborder={0 0 0},
 }
 \usepackage{color}
 \usepackage{amsmath}
-%\usepackage{float}
+% \usepackage{float}
 \usepackage{listings}
 \usepackage{appendix}
 \usepackage[section]{placeins}
@@ -17,12 +15,12 @@
 \usepackage{pdfcomment}
 \usepackage{parskip}
 \usepackage[toc,xindy]{glossaries}
-%\usepackage[nottoc,numbib]{tocbibind}
+% \usepackage[nottoc,numbib]{tocbibind}
 \usepackage{changepage}
 
 \input{glossary.tex}
 
-%opening
+% opening
 \title{The Computer Scientist's Guide to Galaxy}
 \subtitle{An evaluation of the Galaxy workflow system's ability to address the challenges of bioinformatics}
 \author{Peter van Heusden\\
@@ -54,7 +52,15 @@ Bioinformatics is the discipline of solving problems in biology and medicine usi
   \vspace{-10pt}
   \caption{Growth of sequence content of public databases, from \cite{cochrane_international_2010}}
   \vspace{-10pt}
-\end{wrapfigure}Raw DNA sequence data does, however, equate to biological knowledge. This data needs to be analysed, a process that combines human skill (the ability to translate biological questions into computational procedures) with computational infrastructure. With the cost of computing infrastructure steadily dropping (although not at a pace as fast as the cost of DNA sequencing drops), the human element in analysing biological data will tend to dominate the cost of producing knowledge in bioinformatics to an ever greater degree, unless innovations in the work process of \gls{BSA} keep pace with the explosion in available data (and the implosion of sequencing costs).
+\end{wrapfigure}Raw DNA sequence data does, however, equate to biological
+knowledge. This data needs to be analysed, a process that combines human skill
+(the ability to translate biological questions into computational procedures)
+with computational infrastructure. With the cost of computing infrastructure
+steadily dropping (although not at a pace as fast as the cost of DNA sequencing
+drops), the human element in analysing biological data will tend to dominate the
+cost of producing knowledge in bioinformatics to an ever greater degree, unless
+innovations in the work process of \gls{BSA} keep pace with the explosion in
+available data (and the implosion of sequencing costs).
 
 In addition to the problem of cost structure in bioinformatics, some experts in the field suggest that there are simply not enough bioinformaticists to keep up with the data deluge. Mabey et al \cite{mabey_report_2005} suggest that ``the rate of growth of [bioinformatics], and its cross-disciplinary nature, has created a problem: while there are many trained biologists and computer scientists, there are few computer-literate biologists or biology-literate computer scientists.'' To put this shortage in perspective, at the South African National Bioinformatics Institute (SANBI), South Africa's largest bioinformatics centre, student enrollment grew from 8 in 2001 to 31 in 2008, an approximately fourfold increase \cite{south_african_national_bioinformatics_institute_south_2010}. During the same period, the amount of data in public sequence databases grew approximately 100-fold.  In addition, the growth in both the amount of data that requires analysis, and the computational power used to analyse such data, 
 inevitably leads to requirements for more complex data analyses. What might once have been sequential analysis run by hand on a single server, with results stored in a researcher's folder on disk might now become parallel analysis run on a cluster or grid of computers, with results stored in some form of database. This requirement for increased sophistication in the computational side of \gls{BSA} puts further pressure on bioinformaticists, many of whom have a background in life sciences and limited computer science training. \footnote{A survey I conducted of 16 randomly selected postgraduate students at SANBI revealed that 11 (69\%) of them had been life sciences students as undergrads, 3 (19\%) of them came from mathematical and statistical science backgrounds, and only 2 (12\%) had been exposed to computer science prior to adopting bioinformatics as a field of study.} The sudden on reliance on computation for \gls{BSA} has resulted in what some have called a \emph{informatics crisis} for researchers in 
@@ -374,15 +380,42 @@ undertaken in bioinformatics analysis.
 \subsection{Case studies of bioinformatics problem solving}
 \label{sec:case_studies}
 
-Three case studies of real-world bioinformatics analyses will now be presented.
+Two case studies of real-world bioinformatics analyses will now be presented.
 These case studies have been chosen both because they illustrate real-world problems in the field,
-and because they present a variety of problems, including the need to iterate across data collections,
-
-
+and because they present a variety of problems, including the need to iterate across data collections and apply
+different parameters to the analysis of a single data collection (i.e. explore a ``parameter space''). In addition, 
+they illustrate how bioinformatics \glspl{workflow} can be enacted in a scripting languages (Perl). By contrast,
+a third case study (presented in Section \ref{sec} TODO: provide label for Alecia's section) will use Galaxy
+to enact a bioinformatics \gls{workflow}.
 
 \subsubsection{Case study 1: Mining bacterial genomes for virulence genes}
+\label{sec:case_studies_panji}
 
-Pathogens that invade the human body engage in a continual ``arms race'' with the human immune system. Part of this ``arms race'' is pathogenic bacteria evolving new virulence genes (genes that encode for virulence factors) to defeat the human immune system's defences. Building upon earlier work, Panji \cite{panji_identification_2009} investigated bioinformatics techniques to identify genes in bacteria that appear to be evolving at a rate higher than the genome as a whole. This analysis was the first step in investigating whether the rate of evolution of a gene might be an indicator of its involvement in the virulence of an organism. Panji implemented an analysis workflow that compared the genes contained against two bacterial genomes to one another and output a list of genes that showed signs of positive selection. This workflow was implemented as a set of Perl scripts that call various bioinformatics tools, and the steps in the workflow were executed by the user manually enacting them on the command line.
+The first case study is based on the work of Dr Sumir Panji\footnote{Presented
+in his Doctoral thesis.} \cite{panji_identification_2009}, and relate to the
+search for the \glspl{gene} that harmful bacteria use to produce ``virulence
+factors'', the molecules that allow bacteria to invade and live inside a host
+organism. Bacteria are involved in a constant ``arms race'' with the host
+organisms that they invade: as the host's immune system adapts to foreign
+bacteria, the bacteria in turn need to evolve to evade or suppress the immune
+system. Since virulence factors are manufactured in the bacteria using
+\glspl{gene}, in order for the bacteria to evolve, they need to change their
+\glspl{gene}. Drawing on earlier work, Dr Panji decided to try and detect the
+rate at which different \glspl{gene} within a single strain of bacteria were
+evolving, reasoning that the host versus bacteria ``arms race'' would put
+pressure on \glspl{gene} that encoded for virulence factors (``virulence
+genes'') to evolve faster than the other \glspl{gene}. After these
+fast-evolving potential virulence genes were identified, they could be examined
+to see whether they really did play a role in increasing the virulence of the
+organism, and possibly they could provide clues for new medicines to be
+developed.
+
+In order to search for these potential virulence genes, Dr Panji implemented an
+analysis workflow that identified corresponding \glspl{gene} contained in two bacterial
+genomes to one another and output a list of \glspl{gene} that were evolving faster than 
+the average. This workflow was implemented as a set of Perl \cite{christiansen_programming_2012} scripts that 
+call various bioinformatics tools, and the steps in the workflow were executed by the
+user manually enacting them on the command line.
 
 \begin{figure}[!htb]
 \centering
@@ -391,8 +424,153 @@ Pathogens that invade the human body engage in a continual ``arms race'' with th
 \label{fig:sumir_pipeline}
 \end{figure}
 
-Panji's workflow is schematically described in their Ph.D thesis in the form of a diagram (Figure \ref{fig:sumir_pipeline}). Further knowledge of the workflow was gained by interviewing the author directly and by examining the Perl scripts used to enact the workflow.  The Perl scripts that make up this workflow are available in Appendix A1 of \cite{panji_identification_2009}.
-%[[two months to implement, sumir panji came from a life sciences background, first encountered programming during MSc in bioinformatics, self taught in Perl except for one week of instruction]]
+Panji's workflow is schematically described in their Ph.D thesis in the form of
+a diagram (Figure \ref{fig:sumir_pipeline}). Further knowledge of the workflow
+was gained by interviewing the author directly and by examining the Perl scripts
+used to enact the workflow.  The Perl scripts that make up this workflow are
+available in Appendix A1 of \cite{panji_identification_2009}. Finally, part of the workflow was also
+re-implemented using the Galaxy \gls{SciWMS} and some Python \ref{python_software_foundation_python_2012} 
+scripts. Diagrams of this re-implemented workflow is included in Appendix \ref{sec:positive_selection_workflow_analyses_graph}.
+
+As can be seen from Figure \ref{fig:sumir_pipeline}, Panji's pipeline consists, as per Stevens et al's schema,
+of a sequence of transforms and filters. For example, genomic sequence from bacterial strains A and B are 
+transformed into BLAST format databases. These BLAST databases are used in order to find pairs of genes that
+are present in both strains. These pairs, known as \glspl{ortholog}, are the raw material that for the comparisons that
+occur later in the workflow. In essence, using the BLAST tool and the BLAST format database, the collection
+of proteins (i.e. amino acid sequences) is transformed into a set of sequence identifier (i.e. accession number)
+pairs that describe orthologous genes.
+
+The workflow proceeds as a sequential set of transformations: genomic sequence is transformed into sequence  
+ids, sequence ids are transformed into nucleotide and protein sequence pairs, the protein sequence pairs
+are transformed into protein to protein alignments, these are then combined with the nucleotide sequence 
+pairs to transform these into a set of aligned nucleotide sequences, and finally a score is calculated 
+(using the \textbf{CodeML} tool from the PAML \ref{yang_paml_2007} phylogenetics toolkit). The set of 
+sequence pairs is filtered using this score to extract only those that show signs of evolving faster than
+average (i.e. ``positive selection''). In other words, the entire workflow can be described using Stevens et al's 
+notions of collections, transforms and filters.
+
+Turning to Castro et al's operators, we can observe that the workflow involves multiple instances of
+iteration over a collection. For example the step in Dr Panji's implementation that does the \gls{BLAST} search
+of the nucleotide sequences against from one strain against the other (implemented in the script
+\textbf{ortho\_BLAST.pl}) involves iterating over the collection of nucleotide sequences in a strain
+and running \gls{BLAST} for each of these. Dr Panji implemented this by calling the \gls{BLAST} tool with
+the complete collection of query sequences as input. While \gls{BLAST} does have some support for
+operating in parallel, it is restricted to executing on a single machine, and thus Dr Panji's implementation
+of this step cannot efficiently make use of a computing cluster. A \gls{SciWMS} that made the iteration
+operation available to the user could provide some more sophisticated way of executing this step in parallel.
+
+In conclusion, Dr Panji implemented a workflow to try and discover ``virulence genes'' in bacteria. This workflow
+was implemented using a collection of Perl scripts that were executed in sequence by the user. Examination of
+this workflow showed that it conformed to Stevens et al's collection, transform and filter description
+of bioinformatics tasks. Furthermore, Dr Panji's workflow used the iteration operation as described 
+in Castro et al. Examination of this workflow confirms that Stevens et al and Castro et al's models do indeed
+describe real world bioinformatics.
+
+% [[two months to implement, sumir panji came from a life sciences background,
+% first encountered programming during MSc in bioinformatics, self taught in
+% Perl except for one week of instruction]]
+
+\subsubsection{Case study 2: Exploring the impact of k-mer length on assembly quality}
+
+The DNA sequence of living organisms is In the first decade of the 21st century
+DNA sequencing has been revolutionised by a set of technologies that are
+collectively known as ``next generation sequencing''
+(NGS)\cite{shendure_next-generation_2008}. Like previous sequencing
+technologies, NGS is only able to directly sequence small fragments of
+\gls{DNA}. In order to determine the correct sequence of a large \gls{DNA}
+sequence, many fragments (known as ``reads'') are sequenced and the results are
+combined in a computational process that is known as assembly. Whereas older
+technologies produced runs of tens or hundreds of thousands of sequence
+fragments, NGS technologies produce millions of sequence fragments (known as
+``reads'') in a single day. This huge growth in the number of reads that need to
+be assembled has led to a series of innovations in assembly algorithms.
+Many newer assembly approaches compute a graph that describes overlapping
+sequences (known as a de Bruijn graph) and then ``walk'' the graph in order to
+find areas of best overlap. \cite{compeau_how_2011} In order to speed up
+assembly, assembly algorithms designed for working with NGS reads preprocess the
+input data by converting each read into a collection of fixed-length
+subsequences, known as \em{k-mers}. A k-mer might, for example, be a string of
+20 \gls{DNA} bases. Once a k-mer size is chosen, a database is built up that
+notes which k-mers are present in which reads. If two reads share one or more
+k-mers, then we know that they have some \gls{DNA} sequence in common and might
+be assembled together to form a longer sequence fragment.
+
+The output of the assembly process is a collection of longer sequence fragments,
+known as contigs (short for contiguous sequence). In order to compare the
+quality of different assembler programs or algorithms, or the impact of
+different assembly parameters, the contig lengths of the final output sequence
+set is compared. Often contig lengths are summarised into a statistical measure
+known as a $N50$ score \cite{burton_n50_2008}. \footnote{The $N50$ measure
+describes the length $N$ for which 50\% of the bases in the assembly are in
+contigs shorter than $N$}.
+
+Stanley Mbandi-Kimbung, a doctoral student at SANBI, was approached to describe
+their workflow for assessing the quality of assemblies produced by the
+\textbf{velvet} \cite{zerbino_velvet:_2008} and \textbf{oases}
+\cite{schulz_oases:_2012} tools. The first of these, \textbf{velvet}, is an
+assembler that uses a de Bruijn graph based approach to compute the correct
+assembly of a set of genome fragments. The \textbf{oases} tool then
+post-processes the output of \textbf{velvet} to generate the final
+assembly. 
+
+Mbandi's workflow repeatedly runs \textbf{velvet} while varying the k-mer length
+parameter, while keeping all other input to the assembly process constant. This
+workflow is thus an example of a ``parameter sweep'', where a parameter space
+for a tool is explored to try and discover the optimal parameter set. Mbandi
+implemented this workflow in the form of a Perl script (available in Appendix
+\ref{sec:velvet_assembly_parameter_walk})\footnote{Recent versions of
+\textbf{velvet} include a script named \textbf{VelvetOptimiser.pl} that
+implements a similar workflow.} that operates according to the logic show in
+\ref{fig:oases_parameter_walk}. For simplicity's sake the \textbf{oases} step
+has been left out since that does nothing besides post-processing the assembly
+produced by velvet.
+
+\begin{figure}[!htb] \centering
+\includegraphics[width=0.5\textwidth]{images/oases_parameter_walk}
+\caption{Mbandi's parameter sweep of the velvet assembler}
+\label{fig:oases_parameter_walk}
+\end{figure}
+
+The workflow takes as input a set of sequence reads from a DNA sequencing
+experiment (in practice Mbandi used a set of about 10 million reads from the
+fungus \emph{Venturia inequalis}) and a parameter range describing a set of
+k-mer lengths. For each k-mer length, the \textbf{velveth} program is run to
+build up information on which k-mers exist and in which sequences they are
+found. Then the \textbf{velvetg} program is run to assemble the reads using a de
+Bruijn graph, and produce (amongst others) a file containing assembled contigs.
+Finally the contig file is analysed to produce a $N50$ value and the $N50$ value
+and its associated k-mer parameter are stored.
+
+\begin{figure}[!htb] \centering
+\includegraphics[width=0.5\textwidth]{images/ComputeVelvetAlignments}
+\caption{Velvet parameter sweep implemented in parallel}
+\label{fig:ComputeVelvetAlignments}
+\end{figure}
+
+While Mbandi's workflow iterates through the parameter set, the workflow
+conforms with the van der Aalst et al's ``multiple instances with a priori
+knowledge'' workflow pattern, since each the number of sub-workflows is known at
+the outside, and one could execute the \textbf{velvet} tool for each k-mer value
+in parallel, resulting in the workflow as showing in Figure
+\ref{fig:ComputeVelvetAlignments}. An analysis of Mbandi's workflow in terms of
+data flow instead of control flow naturally elicits this parallelism. While
+enacting the workflow resource constraints should be borne in mind (as in
+Naidu's workflow discussed above) since even on Mbandi's relatively small set of
+reads the \textbf{velvet} tool uses approximately 1.5 GB of RAM during its
+execution.
+
+An attempt was made to implement this workflow in Galaxy, and in the process it
+was discovered that the \textbf{VelvetOptimiser.pl} tool (and the corresponding
+tool for \textbf{oases}) has been incorporated into a tool available in the
+Galaxy Toolshed. Galaxy itself is, however, unsuitable for implementing a
+parameter sweep because when a workflow is composed in Galaxy the parameters
+used are fixed at Workflow composition time, and at execution time only the
+dataset can be varied. In addition, as mentioned before, sub-workflows are not
+supported and these, together with that Castro et al call ``recursion'' are
+necessary for implementing a parameter sweep. Thus to implement a workflow such
+a Mbandi's in Galaxy would instead mean to implement the workflow in its
+entirety outside of Galaxy and simply invoke the resulting implementation as a
+single tool.
 
 \subsection{Scientific workflow patterns for bioinformatics}
 \label{sec:workflow_patterns}
@@ -477,35 +655,7 @@ A literature search was conducted, starting from the keywords ``scientific workf
 
 The Galaxy system was then described in terms of the classifications proposed by \cite{yu_taxonomy_2005} and \cite{deelman_workflows_2009}. Drawing from the literature on workflow system, and the data collected about real world bioinformatics workflows, Galaxy was evaluated in terms of its ability to express workflow patterns, the abstractions it supports and its ability to enact real world bioinformatics workflows.
 
-\section{Characterising tasks in bioinformatics}
-\label{sec:tasksinbioinformatics}
-Before considering some real world bioinformatics workflows, it is useful to consider what kind of tasks we typically encounter in the science of bioinformatics and what workflow patterns are necessary to enact these tasks. Stevens et al. \cite{stevens_classification_2001} suggest that tasks in bioinformatics can be classified according to a schema that includes:
 
-\begin{itemize}
-
-\item collections --- collections of either data objects or parameters.
-
-\item filters --- an operation that takes as input a data collection, a restriction collection (e.g. keywords to filter by) and a projection (e.g. which attributes of a data item you want returned).
-
-\item transformers --- an operation that takes a data collection (and optionally a collection of parameters) and transforms the items in the data collection according to a defined operation. For example, the set of parameters could describe subsequences to extract from an input set of sequences.
-
-\item transformer-filters --- a composition of a transformer and a filter. Stevens et al. elevate this to the level of a fundamental component because this composition of tasks is encountered so often in bioinformatics.
-
-\item forks --- unconditional or conditional forks in the analysis workflow.
-
-\end{itemize}
-
-Castro et al. \cite{castro_workflows_2005} build upon this classification and add three new operators:
-
-\begin{itemize}
-
-\item iteration --- the application of a transformer or transformer-filter over multiple sets of inputs. A special case here is iteration with a blank transformer that simply generates a number of replicas of the input.
-
-\item recursion --- repetitive application of a single transform to a single collection, but with a range of parameters. This allows the exploration of a ``parameter space''.
-
-\item suspension / resumption --- the capacity to stop and re-start execution of a workflow.
-
-\end{itemize}
 
 In terms of mapping these concepts to ones identified in the domain of workflow systems, we can identify which of van der Aalst et al's \cite{van_der_aalst_workflow_2003} workflow patterns are necessary to implement a bioinformatics workflow. These are:
 
@@ -615,34 +765,6 @@ input by performing ``quality trimming'', but once again the input dataset is re
 
 Finally, Galaxy does not support the suspension and resumption of workflows, thus a failure in any one of the workflow's steps would require re-executing the workflow in its entirety. This is different from the experience of command line bioinformatics workflows where analysis steps can be manually re-enacted as needed. Thus, while Naidu's workflow is a fairly straightforward transform and filter operation, they have experienced considerable frustration in implementing it in Galaxy and thus complain that the Galaxy environment ``doesn't do what it promises''.
 
-\subsection{Case study 3: Exploring the impact of k-mer length on assembly quality}
-
-In the first decade of the 21st century DNA sequencing has been revolutionised by a set of technologies that are collectively known as ``next generation sequencing'' (NGS)\cite{shendure_next-generation_2008}. Instead of producing runs of tens or hundreds of thousands of sequence fragments, these technologies produce millions of sequence fragments (known as ``reads'') in a single day. These individual sequence reads (each of which is typically between 50 and 500 bases long) need to be combined to recover the complete sequence that has been sequenced. This process is known as assembly, and for NGS techniques based on the use of de Bruijn graphs are common \cite{compeau_how_2011}. DNA assembly results in fragments of contiguous of sequence, called contigs. The length of these contigs can be used to judge the quality of an assembly, and in general, an assembly that has longer contigs is a better assembly. A statistical measure, $N50$, is used to rate contig length, and thus assembly quality \cite{burton_n50_2008}
-\footnote{The $N50$ measure describes the length $N$ for which 50\% of the bases in the assembly are in contigs shorter than $N$}.
-
-Stanley Mbandi-Kimbung, a doctoral student at SANBI, was approached to describe their workflow for assessing the quality of assemblies produced by the \textbf{velvet} \cite{zerbino_velvet:_2008} and \textbf{oases} \cite{schulz_oases:_2012} tools. The first of these, \textbf{velvet}, is an assembler that uses a de Bruijn graph based approach to compute the correct assembly of a set of genome fragments and one of the key parameters used by \textbf{velvet} is the length of the DNA fragment used as a ``word'' during the de Bruijn graph construction. This is the ``k-mer length'', and Mbandi's pipeline varies this parameter while keeping all other input to the assembly process constant. This workflow is thus an example of a ``parameter sweep'', where a parameter space for a tool is explored to try and discover the optimal parameter set. Mbandi implemented this workflow in the form of a Perl script (available in Appendix \ref{sec:velvet_assembly_parameter_walk})\footnote{Recent versions of \textbf{velvet} include a 
-script named \textbf{VelvetOptimiser.pl} that implements a similar workflow.} that operates according to the logic show in \ref{fig:oases_parameter_walk}. For simplicity's sake the \textbf{oases} step has been left out since that does nothing besides post-processing the assembly produced by velvet.
-
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=0.5\textwidth]{images/oases_parameter_walk}
-\caption{Mbandi's parameter sweep of the velvet assembler}
-\label{fig:oases_parameter_walk}
-\end{figure}
-
-The workflow takes as input a set of sequence reads from a DNA sequencing experiment (in practice Mbandi used a set of about 10 million reads from the fungus \emph{Venturia inequalis}) and a parameter range describing a set of k-mer lengths. For each k-mer length, the \textbf{velveth} program is run to build up information on which k-mers exist and in which sequences they are found. Then the \textbf{velvetg} program is run to assemble the reads using a de Bruijn graph, and produce (amongst others) a file containing assembled contigs. Finally the contig file is analysed to produce a $N50$ value and the $N50$ value and its associated k-mer parameter are stored.
-
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=0.5\textwidth]{images/ComputeVelvetAlignments}
-\caption{Velvet parameter sweep implemented in parallel}
-\label{fig:ComputeVelvetAlignments}
-\end{figure}
-
-While Mbandi's workflow iterates through the parameter set, the workflow conforms with the van der Aalst et al's ``multiple instances with a priori knowledge'' workflow pattern, since each the number of sub-workflows is known at the outside, and one could execute the \textbf{velvet} tool for each k-mer value in parallel, resulting in the workflow as showing in Figure \ref{fig:ComputeVelvetAlignments}. An analysis of Mbandi's workflow in terms of data flow instead of control flow naturally elicits this parallelism. While enacting the workflow resource constraints should be borne in mind (as in Naidu's workflow discussed above) since even on Mbandi's relatively small set of reads the \textbf{velvet} tool uses approximately 1.5 GB of RAM during its execution.
-
-
-An attempt was made to implement this workflow in Galaxy, and in the process it was discovered that the \textbf{VelvetOptimiser.pl} tool (and the corresponding tool for \textbf{oases}) has been incorporated into a tool available in the Galaxy Toolshed. Galaxy itself is, however, unsuitable for implementing a parameter sweep because when a workflow is composed in Galaxy the parameters used are fixed at Workflow composition time, and at execution time only the dataset can be varied. In addition, as mentioned before, sub-workflows are not supported and these, together with that Castro et al call ``recursion'' are necessary for implementing a parameter sweep. Thus to implement a workflow such a Mbandi's in Galaxy would instead mean to implement the workflow in its entirety outside of Galaxy and simply invoke the resulting implementation as a single tool.
 
 
 
@@ -776,7 +898,23 @@ faster (thus we cannot afford to spend years on sequence assembly problems anymo
 
 \label{sec:positive_selection_workflow_analyses_graph}
 
-While Figure \ref{fig:positive_selection_workflow_graph} displays datasets as nodes of the graph, the Galaxy workflow editor uses analyses as nodes of the graph. Thus \ref{fig:positive_selection_workflow_analyses_graph} shows the workflow with analyses as nodes and datasets as edges.
+Figure \ref{fig:positive_selection_workflow_graph} illustrates Dr Panji's workflow with datasets as
+nodes in the graph, in other words this is a \gls{dataflow} description of the workflow. This diagram
+serves to expand the discussion in \ref{sec:case_studies_panji} of the workflow as a series of transformations
+of data collections. Datasets form the nodes of the diagram, and analyses are the edges that ``carry''
+data from one collection to the next.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\textwidth]{images/positive_selection_workflow_graph.png}
+\caption{Positively selected genes workflow with analyses as nodes}
+\label{fig:positive_selection_workflow_graph}
+\end{figure}
+
+By contrast \ref{fig:positive_selection_workflow_analyses_graph} shows the
+workflow with analyses as nodes and datasets as edges. In other words, this is a \gls{controlflow} diagram
+of the dataset. This view is in some ways similar to the way that Galaxy displays a workflow, in that
+the nodes are analyses and the edges are datasets that flow from one analysis to the next.
 
 \begin{figure}[h!]
 \centering
